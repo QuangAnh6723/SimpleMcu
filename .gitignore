@@ -1,0 +1,9 @@
+Drivers
+Middlewares
+.settings/stm32cubeide.project.prefs
+
+docs
+temp
+Debug
+
+*.launch

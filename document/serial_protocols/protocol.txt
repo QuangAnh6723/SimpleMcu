@@ -1,0 +1,51 @@
+1. Protocol
+Data frame
+
+[Header 0xAA 0x55] [Command ID 2 bytes] [Length 2 bytes]  [CRC Length] [Payload] [Checksum 2 bytes] 
+
+Length max 1024
+full packet: 2 + 2 + 2 + 1 + length max + 2 = 9+1024 = 1033 bytes
+
+Payload prase
+
+-->
+
+Payload struct 
+{
+    Command         : 1 byte
+    Sub Command     : 1 byte
+    Results code    : 1 byte
+    Data
+}
+
+where ACK
+
+where NAK
+
+command_id incremental 0 -> 65535
+
+1. Host packet
+
+header: 0x55 0xAA
+
+2. Device packet 
+
+header: 0xAA 0x55
+ack --> header + command_id + 00 + 00 + crc_len + crc_packet 
+
+
+Protocol
+
+Host        send packet 
+Device      send ack, send response packet
+
+nhận được gói tin
+
+fsm -> sai bỏ gói tin
+
+fsm đúng --> ra đc Data
+có data rồi ? kiếm tra device có support command này hay không --> không có thì gửi NAK, có thì gửi ACK
+
+handle command 
+
+
