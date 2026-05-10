@@ -10,7 +10,8 @@
 
 
 #define DEBUG_BOOTLOADER		0
-#define DEBUG_SRV_SERIAL		1
+#define DEBUG_SRV_SERIAL		0
+#define DEBUG_SRV_LITTLEFS		1
 
 
 // Debug configuration

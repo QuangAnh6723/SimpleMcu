@@ -14,6 +14,10 @@
 #include "stdint.h"
 #include "cmsis_os.h"
 
+/* Peripheral */
+
+extern SPI_HandleTypeDef hspi1;
+
 /* User library */
 
 #include "config.h"
@@ -22,5 +26,7 @@
 /* MISC */
 
 #include "misc/misc.h"
+
+
 
 #endif /* INCLUDE_MYINCLUDE_H_ */

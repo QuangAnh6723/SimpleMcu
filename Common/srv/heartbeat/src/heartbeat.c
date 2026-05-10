@@ -12,7 +12,7 @@ static osThreadId_t 		heartbeatThreadHandle;
 static const osThreadAttr_t thread_attributes =
 {
   .name = "heartbeat task",
-  .stack_size = 128 * 1,
+  .stack_size = 128 * 2,
   .priority = (osPriority_t) osPriorityNormal,
 };
 
@@ -40,6 +40,8 @@ myError_t srv_heartbeat_create()
 void ledStatus_toggle()
 {
 	HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
+//	HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+//	HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
 }
 
 void srv_heartbeat_thread()

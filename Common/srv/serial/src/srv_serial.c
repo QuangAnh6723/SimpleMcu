@@ -25,7 +25,7 @@ static osThreadId_t 		serialThreadHandle;
 static const osThreadAttr_t thread_attributes =
 {
   .name = "serial task",
-  .stack_size = 128 * 20,
+  .stack_size = 128 * 32,
   .priority = (osPriority_t) osPriorityNormal,
 };
 
@@ -191,7 +191,7 @@ myError_t srv_serial_create()
 	resetFSM();
 	serialQueueHandle.flag = SERIAL_NO_DATA;
 
-	Test_srv_serial_test();
+//	Test_srv_serial_test();
 
 	return err;
 }
@@ -256,7 +256,6 @@ void srv_serial_thread()
 				printf("======================== handle finish ==================\r\n");
 			}
 			printf("\r\n");
-
 		}
 	}
 }
