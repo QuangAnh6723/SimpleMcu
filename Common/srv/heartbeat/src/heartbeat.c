@@ -40,12 +40,17 @@ myError_t srv_heartbeat_create()
 void ledStatus_toggle()
 {
 	HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
+//	HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin);
 //	HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
 //	HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
 }
 
 void srv_heartbeat_thread()
 {
+	HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin);
+	osDelay(50);
+	HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin);
+
 	while(1)
 	{
 		ledStatus_toggle();
